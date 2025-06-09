@@ -12,7 +12,7 @@ def index
   def create
     @product = Product.create(
       name: params["name"],
-      shop_owner: params["shop_owner"],
+      user_id: params["user_id"],
       price: params["price"],
     )
 
@@ -27,7 +27,7 @@ def index
     @product = Product.find(params["id"])
     @product.update(
       name: params["name"] || @product.name,
-      shop_owner: params["shop_owner"] || @product.shop_owner,
+      shop_owner: params["user_id"] || @product.user_id,
       price: params["price"] || @product.price
     )
     if @product.valid?
